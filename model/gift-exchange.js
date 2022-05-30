@@ -1,5 +1,11 @@
+const { BadRequestError } = require('../utils/errors')
+
 class GiftExchange {
     static pairs(names) {
+        if (names.length % 2 !== 0) {
+            throw new BadRequestError("The pairs need to be entered in an even amount")
+        }
+
         // randomize the names into pairs
         const namedPairs = [];
 
