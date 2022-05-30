@@ -9,7 +9,6 @@ const gift = {
 }
 
 router.get('/:id', async (req, res) => {
-    console.log('req: ', req.params.id);
     res.status(200).json(gift)
 })
 
