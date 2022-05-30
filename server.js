@@ -2,13 +2,16 @@ const express = require("express")
 const morgan = require("morgan")
 const bodyParser = require('body-parser');
 const giftExchangeRouter = require('./routes/gift-exchange')
+const quizRouter = require('./routes/quiz')
 const app = express()
+const { NotFoundError } = require('./utils/errors')
 
 app.use(bodyParser.json({ extended: true }));
 
 app.use(morgan("tiny"))
 
 app.use('/gift-exchange', giftExchangeRouter)
+app.use('/quiz', quizRouter)
 
 const port = 3000
 
